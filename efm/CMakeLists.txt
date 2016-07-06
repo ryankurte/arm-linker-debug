@@ -43,6 +43,7 @@ endif()
 # or manually included here.
 
 # Add base libs (emlib, CMSIS, device files)
+set(NO_EMLIB true)
 include(${BASE_LOCATION}/toolchain/efm32-base.cmake)
 
 ##### Files #####

@@ -13,3 +13,6 @@ compare: efm32 stm32
 	@echo "EFM32 __libc_init_array"
 	cat stm/build/stm32.map | grep -B 1 __libc_init_array
 
+clean:
+	rm -rf stm/build/* efm/build/*
+

@@ -26,7 +26,10 @@ project(${TARGET} C CXX ASM)
 
 # Set device
 if(NOT DEVICE)
-set(DEVICE STM32F429zit6)
+set(DEVICE STM32L152RET6)
+set(FLASH_LENGTH 512K)
+set(RAM_LENGTH 80k)
+add_definitions(-DSTM32L152xE)
 endif()
 
 # Set build
