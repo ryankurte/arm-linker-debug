@@ -1,9 +1,14 @@
+#include <stdint.h>
+#include <stdlib.h>
 
 
-int main() {
+int main(void)
+{
 
-    while(1);
+    volatile int a = 0;
 
-    return 0;
+    while(1) {
+        a ++;
+    }
 
 }
