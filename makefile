@@ -7,9 +7,9 @@ efm32:
 stm32:
 	mkdir -p stm/build && cd stm/build && cmake .. && make
 
-compare:
+compare: efm32 stm32
 	@echo "EFM32 __libc_init_array"
-	cat efm/build/efm32.map | grep -C 1 __libc_init_array
+	cat efm/build/efm32.map | grep -B 1 __libc_init_array
 	@echo "EFM32 __libc_init_array"
-	cat stm/build/stm32.map | grep -C 1 __libc_init_array
+	cat stm/build/stm32.map | grep -B 1 __libc_init_array
 
