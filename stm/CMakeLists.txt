@@ -58,8 +58,8 @@ set(SOURCES
 ##### Outputs #####
 
 # Generate executable and link
-add_executable(${TARGET} ${SOURCES})
-target_link_libraries(${TARGET} device c gcc nosys)
+add_executable(${TARGET} ${SOURCES} ${STARTUP_FILE} ${SYSTEM_FILE})
+target_link_libraries(${TARGET} nosys nosys)
 
 ##### Post build (require target to be defined) #####
 
