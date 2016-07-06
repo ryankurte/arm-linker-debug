@@ -1,0 +1,6 @@
+[submodule "modules/efm32-base"]
+	path = modules/efm32-base
+	url = git@github.com:ryankurte/efm32-base.git
+[submodule "modules/stm32f4-base"]
+	path = modules/stm32f4-base
+	url = git@github.com:ryankurte/stm32f4-base.git
