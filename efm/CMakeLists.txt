@@ -61,12 +61,10 @@ set(SOURCES
 add_executable(${TARGET} ${SOURCES})
 target_link_libraries(${TARGET} ${LIBS})
 
-##### Post build #####
+##### Post build (require target to be defined) #####
 
 # Add post build commands
 include(${BASE_LOCATION}/toolchain/post-build.cmake)
-
-add_custom_command(TARGET ${TARGET} POST_BUILD COMMAND cat ${TARGET}.map | grep -C 1 __libc_init_array)
 
 # Add JLink commands
 include(${BASE_LOCATION}/toolchain/jlink.cmake)

@@ -8,7 +8,7 @@
 ###### Project Environment #####
 
 # Set minimum CMake version
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 2.8.4)
 
 # Set stm32-base project location
 set(BASE_LOCATION ../modules/stm32f4-base)
@@ -28,8 +28,6 @@ project(${TARGET} C CXX ASM)
 if(NOT DEVICE)
 set(DEVICE STM32F429zit6)
 endif()
-
-set(USE_STLINK ON)
 
 # Set build
 if(NOT CMAKE_BUILD_TYPE)
@@ -65,13 +63,6 @@ target_link_libraries(${TARGET} ${LIBS})
 # Add post build commands
 include(${BASE_LOCATION}/toolchain/post-build.cmake)
 
-add_custom_command(TARGET ${TARGET} POST_BUILD COMMAND cat ${TARGET}.map | grep -C 1 __libc_init_array)
-
-# Add JLink commands
-if(USE_STLINK)
+# Add STLink commands
 include(${BASE_LOCATION}/toolchain/stlink.cmake)
-endif()
 
-if(USE_JLINK)
-include(${BASE_LOCATION}/toolchain/stlink.cmake)
-endif()
